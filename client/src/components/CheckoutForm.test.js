@@ -10,4 +10,29 @@ test("form header renders", () => {
   expect(formHeader).toBeInTheDocument();
 });
 
-test("form shows success message on submit with form details", () => {});
+test("form shows success message on submit with form details", () => {
+  render(<CheckoutForm />);
+
+  const firstNameInput = screen.getByLabelText(/First Name:/i);
+  const lastNameInput = screen.getByLabelText(/Last Name:/i);
+  const addressInput = screen.getByLabelText(/Address:*/i);
+  const cityInput = screen.getByLabelText(/City:*/i);
+  const stateInput = screen.getByLabelText(/State:*/i);
+  const zipInput = screen.getByLabelText(/Zip:*/i);
+
+  fireEvent.change(firstNameInput, { target: { value: 'Maryam' } });
+  fireEvent.change(lastNameInput, { target: { value: 'Mosstoufi' } });
+  fireEvent.change(addressInput, { target: { value: '11677 Danville Dr' } });
+  fireEvent.change(cityInput, { target: { value: 'North Bethesda' } });
+  fireEvent.change(stateInput, { target: { value: 'MD' } });
+  fireEvent.change(zipInput, { target: { value: '20852' } });
+  
+  const submitButton = screen.getByRole('button');
+  fireEvent.click(submitButton);
+
+  const successMessage = screen.getByTestId('successMessage');
+  expect(successMessage).toBeVisible();
+  const nameMessage = screen.getByText(/maryam mosstoufi/i);
+  const addressMessage = screen.getByText(/11677 Danville Dr/i);
+  const cityStateZipMessage = screen.getByText(/North Bethesda, MD 20852/i);
+});
