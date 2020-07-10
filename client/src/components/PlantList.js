@@ -11,6 +11,14 @@ export default class PlantList extends Component {
   //   - set the returned plants array to this.state.plants
   componentDidMount() {
     console.log('component did mount')
+    axios
+      .get('http://localhost:3333/plants')
+      .then(res => { 
+        console.log('axios call results',res.data) 
+      })
+      .catch(error => {
+        console.log('axios call error', error)
+      })
   }
   /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
   render() {
