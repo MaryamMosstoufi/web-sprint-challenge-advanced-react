@@ -35,4 +35,5 @@ test("form shows success message on submit with form details", () => {
   const nameMessage = screen.getByText(/maryam mosstoufi/i);
   const addressMessage = screen.getByText(/11677 Danville Dr/i);
   const cityStateZipMessage = screen.getByText(/North Bethesda, MD 20852/i);
+  //expect(successMessage).toContain(firstNameInput.value);
 });
