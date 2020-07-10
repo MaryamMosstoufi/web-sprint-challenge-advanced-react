@@ -1,0 +1,38 @@
+.nav-toggle {
+  background: transparent!important;
+}
+
+.dark-mode__toggle {
+  background: #fff;
+  border-radius: 50px;
+  height: 20px;
+  position: relative;
+  width: 40px;
+}
+
+.toggle {
+  background: #ec5990;
+  border-radius: 50px;
+  height: 18px;
+  left: 0;
+  position: absolute;
+  transition: 0.2s;
+  width: 20px;
+}
+
+.toggled {
+  left: 18px;
+}
+
+.dark-mode {
+  background: #ccc;
+  color: #0e101c;
+}
+
+form {
+  background: transparent !important;
+}
+
+button {
+  border: none !important;
+}
